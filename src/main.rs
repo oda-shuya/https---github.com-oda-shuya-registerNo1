@@ -37,7 +37,7 @@ async fn finish(tera : web::Data<Tera>,form : web::Form<FormData>)-> impl Respon
 
 #[actix_web::main]
 async fn main()->std::io::Result<()>{
-    let tera = Tera::new("src/views/**").expect("Teraのインスタン生成に失敗しました");
+    let tera = Tera::new("src/**").expect("Teraのインスタン生成に失敗しました");
     HttpServer::new(move ||{
         App::new()
             .app_data(web::Data::new(tera.clone()))

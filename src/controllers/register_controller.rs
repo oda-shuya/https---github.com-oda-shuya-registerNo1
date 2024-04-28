@@ -26,6 +26,12 @@ async fn finish(tera : web::Data<Tera>,form : web::Form<FormData>)-> impl Respon
     let mut context = Context::new();
     let service = RegisterService;
     context.insert("user",&form);
-    service.register(form.into_inner());
-    render_template(tera, "finish.html", context).await
+    let user = form.into_inner();
+    match service.register(user){
+        Ok(_) => render_template(tera, "finish.html", context).await,
+        Err(e)=>{
+            context.insert("error", &e);
+            render_template(tera, "register.html", context).await
+        }
+    }
 } 

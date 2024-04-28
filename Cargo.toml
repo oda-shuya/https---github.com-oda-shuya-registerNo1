@@ -7,3 +7,4 @@ edition = "2021"
 actix-web="4.5.1"
 serde = { version = "1.0.198", features = ["derive"] }
 tera ="1.19.1"
+mysql ="25.0.0"

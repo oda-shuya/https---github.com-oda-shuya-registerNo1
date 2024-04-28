@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>会員登録確認画面</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h3>ぽかぽかサイトへようこそ</h3>
+    <p>お名前は : {{user.username}}</p>
+    <p>メールアドレス : {{user.mailaddress}}</p>
+    <p>パスワード : {{user.password}}</p>
+    <form action="/finish" method="post">
+        <input type="hidden" name="username" value="{{user.username}}">
+        <input type="hidden" name="mailaddress" value="{{user.mailaddress}}">
+        <input type="hidden" name="password" value="{{user.password}}">
+        <button type="submit">完了画面へ</button>
+    </form>
+</body>
+</html>
